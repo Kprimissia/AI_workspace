@@ -32,12 +32,13 @@ Esta Skill pode ser utilizada em atividades envolvendo:
 
 As tecnologias devem ser identificadas no projeto. Não presumir linguagens, frameworks ou bancos de dados.
 
-## 3. Análise inicial
+## 3. Análise inicial e sincronização obrigatória
 
-Antes de implementar qualquer funcionalidade:
+Antes de implementar, testar ou subir qualquer funcionalidade:
 
-1. Identificar o repositório e seu diretório raiz.
-2. Consultar o `AGENTS.md` e demais instruções do projeto.
+1. Identificar o repositório e seu diretório raiz (`git rev-parse --show-toplevel`).
+2. **Sincronizar obrigatoriamente o repositório com o remoto (`git fetch --all --prune` e `git pull --ff-only` em `main` e `develop`)** antes de analisar ou executar o projeto.
+3. Consultar o `AGENTS.md` e demais instruções do projeto.
 3. Identificar a linguagem e o framework utilizados.
 4. Analisar a estrutura de diretórios.
 5. Consultar arquivos de dependências e configurações.

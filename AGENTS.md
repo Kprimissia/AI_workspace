@@ -18,6 +18,7 @@ Ao executar qualquer tarefa, o agente deve respeitar rigorosamente a seguinte or
 
 1. **Regras de Segurança, Isolamento de Git e Limites da Plataforma:**
    - Proteção de credenciais e proibição de comandos destrutivos sem autorização explícita.
+   - **Sincronização Prévia Obrigatória (`Always Fetch/Pull Before Execution`):** Antes de qualquer análise, implementação, revisão ou execução local, o agente DEVE executar `git fetch --all --prune`, atualizar `main` e `develop` (`git pull --ff-only`) e comparar `origin/main` vs `origin/develop` para garantir que sempre trabalha sobre a versão mais recente e preserva integralmente os commits do usuário.
    - **Autonomia de Git:** Commits locais pequenos e frequentes são permitidos automaticamente no repositório do projeto após executar os **10 passos obrigatórios de verificação** (Seção 8 de `global-rules.md`, usando staging seletivo `git add <arquivo>` e revisão via `git diff --cached --name-only`).
    - **Operações que exigem autorização explícita:** `git push`, `git merge`, `git rebase`, alteração de remotos, exclusão/reescrita de histórico e deploy.
    - **Bloqueio de arquivos externos:** Nenhum arquivo da `AI_workspace` (`AGENTS.md` raiz, `00-GLOBAL/`, `01-PROJECTS/`, `02-KNOWLEDGE/`, `03-TEMPLATES/`, `.agents/`) pode ser enviado aos repositórios dos projetos.

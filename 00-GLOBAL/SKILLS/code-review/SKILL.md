@@ -31,12 +31,13 @@ Esta Skill pode ser utilizada para revisar:
 
 A análise deve respeitar as tecnologias e a arquitetura identificadas no projeto.
 
-## 3. Preparação da revisão
+## 3. Preparação da revisão e sincronização obrigatória
 
 Antes de iniciar:
 
 1. Identificar o projeto e seu contexto.
-2. Consultar as instruções disponíveis, especialmente `AGENTS.md`.
+2. **Sincronizar obrigatoriamente o repositório com o remoto (`git fetch --all --prune`), atualizando `main` e `develop` e comparando `origin/main` vs `origin/develop`** para identificar todas as entregas recentes e eventuais sobrescritas de código em merges.
+3. Consultar as instruções disponíveis, especialmente `AGENTS.md`.
 3. Identificar o objetivo da alteração.
 4. Analisar os arquivos envolvidos.
 5. Verificar o estado do Git.

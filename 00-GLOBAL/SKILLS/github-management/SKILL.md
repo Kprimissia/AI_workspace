@@ -29,28 +29,32 @@ Esta Skill abrange:
 - Documentação de repositórios.
 - Colaboração entre integrantes.
 
-## 3. Análise inicial do repositório
+## 3. Análise inicial e sincronização obrigatória do repositório
 
-Antes de realizar qualquer operação:
+Antes de realizar qualquer operação (desenvolvimento, revisão, execução local ou gestão no GitHub):
 
 1. Identificar o repositório e sua finalidade.
-2. Verificar a raiz do projeto.
-3. Consultar o estado atual do Git.
-4. Identificar a branch atual.
-5. Verificar alterações locais e arquivos não rastreados.
-6. Consultar as branches disponíveis.
-7. Identificar convenções de commits e colaboração.
-8. Consultar a documentação existente.
+2. Verificar a raiz do projeto (`git rev-parse --show-toplevel`).
+3. **Executar sincronização completa com o remoto (`git fetch --all --prune`):**
+   - Nunca trabalhar sobre estado local potencialmente desatualizado.
+   - Conferir todas as branches remotas (`origin/main`, `origin/develop` e branches de funcionalidades) e atualizar as branches locais com `git pull --ff-only`.
+   - Comparar `origin/main` e `origin/develop` (`git log --oneline origin/main..origin/develop` e `git log --oneline origin/develop..origin/main`) para detectar commits recentes e verificar se entregas do usuário foram sobrescritas em merges posteriores.
+4. Consultar o estado atual do Git (`git status -sb`).
+5. Identificar a branch atual (`git branch -vv`).
+6. Verificar alterações locais e arquivos não rastreados.
+7. Consultar as branches disponíveis (`git branch -a`).
+8. Identificar convenções de commits e colaboração.
+9. Consultar a documentação existente.
 
-Comandos úteis:
+Comandos obrigatórios de sincronização e diagnóstico:
 
 ```bash
 git rev-parse --show-toplevel
 git remote -v
-git status
-git branch
-git branch -a
-git log --oneline -10
+git fetch --all --prune
+git status -sb
+git branch -a -v
+git log --oneline --graph --all -15
 ```
 
 ### Procedimento obrigatório antes de commits ou pushes (Política Global de Git)

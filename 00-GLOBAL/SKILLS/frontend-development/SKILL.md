@@ -29,20 +29,23 @@ Esta Skill pode ser utilizada em projetos que envolvam:
 
 A tecnologia efetivamente utilizada deve ser identificada no projeto. Não introduzir frameworks ou bibliotecas apenas porque aparecem nesta lista.
 
-## 3. Pré-requisitos
+## 3. Pré-requisitos e sincronização obrigatória
 
-Antes de iniciar:
+Antes de iniciar qualquer análise, ajuste visual, correção ou execução do servidor de desenvolvimento:
 
-1. Identificar o projeto e seu diretório raiz.
-2. Consultar as instruções do projeto, incluindo `AGENTS.md`.
-3. Identificar as tecnologias e versões utilizadas.
-4. Analisar a estrutura de diretórios.
-5. Consultar `package.json` e arquivos de configuração, quando existentes.
-6. Identificar padrões de componentes, estilos e organização.
-7. Verificar o estado do Git.
-8. Compreender o requisito solicitado.
+1. Identificar o projeto e seu diretório raiz (`git rev-parse --show-toplevel`).
+2. **Atualizar obrigatoriamente o repositório com o remoto (`git fetch --all --prune`):**
+   - Atualizar as branches base (`main` e `develop`) com `git pull --ff-only`.
+   - Comparar os commits recentes entre `origin/main` e `origin/develop` (`git log --oneline -n 15 origin/main origin/develop`) para garantir que o trabalho parta sempre da versão mais recente e preserve todos os refinamentos visuais e funcionais já feitos pelo usuário.
+3. Consultar as instruções do projeto, incluindo `AGENTS.md`.
+4. Identificar as tecnologias e versões utilizadas.
+5. Analisar a estrutura de diretórios.
+6. Consultar `package.json` e arquivos de configuração, quando existentes.
+7. Identificar padrões de componentes, estilos e organização.
+8. Verificar o estado do Git (`git status -sb`).
+9. Compreender o requisito solicitado.
 
-Não começar implementações sem compreender a arquitetura existente.
+Não começar implementações nem subir o servidor local sem antes sincronizar a versão mais recente do repositório e confirmar que todas as alterações do usuário estão presentes.
 
 ## 4. Fluxo de desenvolvimento
 

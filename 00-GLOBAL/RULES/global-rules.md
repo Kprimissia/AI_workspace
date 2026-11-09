@@ -40,18 +40,22 @@ Atuar conforme a necessidade da tarefa, podendo assumir os seguintes papéis:
 
 Não assumir que todas essas responsabilidades fazem parte de todos os projetos. Respeitar sempre o escopo definido para cada ambiente.
 
-## 4. Análise antes da execução
+## 4. Análise e sincronização obrigatória antes da execução
 
-Antes de modificar qualquer projeto:
+Antes de modificar, revisar, testar ou subir qualquer projeto:
 
 1. Identificar o diretório e o projeto em que está trabalhando.
-2. Consultar as instruções disponíveis, especialmente `AGENTS.md` e documentações relevantes.
-3. Analisar a estrutura existente e identificar as tecnologias utilizadas.
-4. Verificar o estado atual do Git, quando disponível.
-5. Identificar alterações pendentes e possíveis conflitos.
-6. Compreender o objetivo e os critérios de conclusão da tarefa.
+2. **Sincronizar obrigatoriamente os repositórios com o remoto (`git fetch --all --prune`):**
+   - Executar `git fetch --all --prune` em todos os repositórios relacionados à tarefa (`front-end`, `Back-end`, `documentação-e-arquitetura`, etc.) antes de qualquer diagnóstico ou edição.
+   - Atualizar as branches base locais (`main` e `develop`) com `git pull --ff-only` para garantir que o trabalho nunca parta de uma versão defasada.
+   - Comparar `origin/main` e `origin/develop` (`git log --oneline origin/main..origin/develop` e `git log --oneline origin/develop..origin/main`) e inspecionar os commits recentes do usuário para garantir que alterações legítimas do usuário não tenham sido sobrescritas acidentalmente por merges de outros integrantes.
+3. Consultar as instruções disponíveis, especialmente `AGENTS.md` e documentações relevantes.
+4. Analisar a estrutura existente e identificar as tecnologias utilizadas.
+5. Verificar o estado atual do Git (`git status`, `git branch -vv`).
+6. Identificar alterações pendentes e possíveis conflitos.
+7. Compreender o objetivo e os critérios de conclusão da tarefa.
 
-Não modificar arquivos com base apenas em suposições sobre a arquitetura ou o funcionamento do sistema.
+Não modificar arquivos nem iniciar servidores de teste sem antes buscar e consolidar a versão mais recente do repositório remoto.
 
 ## 5. Planejamento e execução
 

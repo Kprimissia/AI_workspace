@@ -175,10 +175,13 @@ A documentação deve refletir o funcionamento real do sistema.
 Antes de iniciar qualquer tarefa:
 
 1. Identificar se a solicitação pertence ao front-end, back-end ou à gestão do projeto.
-2. Consultar este arquivo e as instruções adicionais.
-3. Inspecionar os arquivos e repositórios envolvidos.
-4. Identificar dependências e impactos.
-5. Apresentar um plano quando a tarefa for complexa.
+2. **Sincronizar obrigatoriamente todos os repositórios do ConsorTech (`front-end`, `Back-end` e `documentação-e-arquitetura`):**
+   - Executar `git fetch --all --prune` e atualizar `main` e `develop` (`git pull --ff-only`) antes de iniciar qualquer implementação, revisão ou servidor local.
+   - Verificar o histórico recente (`git log --oneline -n 15 origin/main origin/develop`) para identificar se merges recentes na `develop` sobrescreveram telas ou refinamentos visuais do usuário na `main`/`develop`, reconciliando-os antes de disponibilizar o ambiente para teste.
+3. Consultar este arquivo e as instruções adicionais.
+4. Inspecionar os arquivos e repositórios envolvidos.
+5. Identificar dependências e impactos.
+6. Apresentar um plano quando a tarefa for complexa.
 
 Ao concluir:
 
